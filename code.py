@@ -249,7 +249,10 @@ while True:
         print("Temperature: %0.1f *C" % scd4x.temperature)
         print("Humidity: %0.1f %%" % scd4x.relative_humidity)
         co2 = "%d ppm" % scd4x.CO2
-        tmp = "%0.1f *C" % scd4x.temperature
+        if METRIC:
+            tmp = "%0.1f *C" % scd4x.temperature
+        else:
+            tmp = "%0.1f *F" % (scd4x.temperature * 9/5 + 32)
         hum = "%0.1f %%" % scd4x.relative_humidity
         print()
     else:
